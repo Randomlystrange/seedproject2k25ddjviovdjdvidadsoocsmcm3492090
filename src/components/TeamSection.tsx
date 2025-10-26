@@ -42,7 +42,7 @@ const teamMembers = [
     name: "Ayushman Singh",
     role: "3D Printing Specialist",
     expertise: "Expert in additive manufacturing and rapid prototyping. Creates custom 3D-printed components for disaster response tools and equipment, enabling quick iteration and deployment of innovative solutions.",
-    image: "https://via.placeholder.com/400x500/1a1a1a/666666?text=A.S."
+    image: ""
   }
 ];
 

@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 interface TeamMemberProps {
   name: string;
@@ -31,14 +32,22 @@ const TeamMember = ({ name, role, expertise, image, index }: TeamMemberProps) =>
         style={{ perspective: "1000px" }}
       >
         <Card className="card-glass hover:border-primary/50 transition-all duration-300 h-full group overflow-hidden">
-          <div className="relative h-64 md:h-80 overflow-hidden">
-            <motion.img 
-              src={image} 
-              alt={name}
-              className="w-full h-full object-cover object-top"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            />
+          <div className="relative h-64 md:h-80 overflow-hidden flex items-center justify-center">
+            {image ? (
+              <motion.img 
+                src={image} 
+                alt={name}
+                className="w-full h-full object-cover object-top"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              />
+            ) : (
+              <Avatar className="h-40 w-40 md:h-48 md:w-48">
+                <AvatarFallback className="bg-primary/20 text-primary text-4xl md:text-5xl font-bold">
+                  {name.split(' ').map(n => n[0]).join('')}
+                </AvatarFallback>
+              </Avatar>
+            )}
           </div>
           
           <CardHeader className="space-y-2">
