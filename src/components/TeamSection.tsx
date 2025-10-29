@@ -52,7 +52,7 @@ const TeamSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Our <span className="text-primary">Team</span> - Aeternum<span className="text-[#ff6600]">X</span>
+            Our <span className="text-primary">Team</span> 
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Passionate innovators dedicated to revolutionizing innovation through technology
