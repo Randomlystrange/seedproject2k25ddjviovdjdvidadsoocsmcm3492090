@@ -79,17 +79,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="inline-block text-primary text-glow"
+            className="inline-block text-[#ff6b35] text-glow"
           >
-            disaster
-          </motion.span>{" "}
-          <motion.span 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="inline-block"
-          >
-            management
+            innovation
           </motion.span>
         </h1>
         
@@ -99,7 +91,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 1 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
         >
-          Meet the team building innovative solutions for crisis response and disaster preparedness
+          Meet the team building innovative solutions for tomorrow's challenges
         </motion.p>
       </div>
 

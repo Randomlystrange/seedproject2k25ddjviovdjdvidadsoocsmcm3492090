@@ -10,38 +10,38 @@ import ayushmanImg from "@/assets/ayushman.jpg";
 const teamMembers = [
   {
     name: "Jaipreet Purkayastha",
-    role: "Robotics Head",
-    expertise: "Expert in microcontroller programming and hardware integration, specializing in Arduino and ESP32 platforms. Skilled in designing and implementing embedded systems for disaster response robotics and autonomous vehicles.",
+    role: "Co-Head of STEM (Technology)",
+    expertise: "Expert in microcontroller programming and hardware integration, specializing in Arduino and ESP32 platforms. Skilled in designing and implementing embedded systems for robotics and autonomous vehicles.",
     image: jaipreetImg
   },
   {
     name: "Samaroha Bhattacharyya",
-    role: "Lead Developer",
-    expertise: "Full-stack developer specializing in mobile and web development. Proficient in React Native, React, TypeScript, JavaScript, and Node.js. Builds scalable applications for disaster management and emergency response systems.",
+    role: "Chief Software Engineer",
+    expertise: "Full-stack developer specializing in mobile and web development. Proficient in React Native, React, TypeScript, JavaScript, and Node.js. Builds scalable applications with cutting-edge technologies.",
     image: tejasImg
   },
   {
     name: "Sharanyo Chakraborty",
-    role: "Marketing Head",
-    expertise: "Leads strategic marketing initiatives and community outreach programs. Develops campaigns to increase awareness about disaster preparedness and promotes innovative solutions in emergency management.",
+    role: "Chief Marketing Officer",
+    expertise: "Leads strategic marketing initiatives and community outreach programs. Develops campaigns to increase awareness and promotes innovative solutions across various domains.",
     image: abhinavaImg
   },
   {
     name: "Abhinava Bandopadhyay",
-    role: "Electronics Engineer",
-    expertise: "Specializes in circuit design and electronic system integration. Expert in creating robust circuitry solutions for disaster response equipment, focusing on reliability and efficiency in critical situations.",
+    role: "Head Of Product Design",
+    expertise: "Experienced in ideation workflows with thorough knowledge of real-world problems. Perfect project pitching skills and robust expertise in robotics.",
     image: sharanyoImg
   },
   {
     name: "Tejas Singh",
-    role: "Electronics Specialist",
-    expertise: "Skilled in electronics design and implementation, with a focus on power systems and signal processing. Develops electronic components for emergency communication devices and sensor networks.",
+    role: "Co-head of STEM (Mechanics)",
+    expertise: "Skilled in mechanical design and implementation, with a focus on power systems and engineering solutions. Develops innovative mechanical components and systems.",
     image: samarohaImg
   },
   {
     name: "Ayushman Singh",
-    role: "3D Printing Specialist",
-    expertise: "Expert in additive manufacturing and rapid prototyping. Creates custom 3D-printed components for disaster response tools and equipment, enabling quick iteration and deployment of innovative solutions.",
+    role: "Lead 3D Designer",
+    expertise: "Expert in additive manufacturing and rapid prototyping. Creates custom 3D-printed components and designs, enabling quick iteration and deployment of innovative solutions.",
     image: ""
   }
 ];
@@ -55,7 +55,7 @@ const TeamSection = () => {
             Our <span className="text-primary">Team</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Passionate innovators dedicated to revolutionizing disaster management through technology
+            Passionate innovators dedicated to revolutionizing innovation through technology
           </p>
         </div>
 
