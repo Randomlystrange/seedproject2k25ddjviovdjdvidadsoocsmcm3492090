@@ -42,7 +42,7 @@ const teamMembers = [
     name: "Ayushman Singh",
     role: "Lead 3D Designer",
     expertise: "Expert in additive manufacturing and rapid prototyping. Creates custom 3D-printed components and designs, enabling quick iteration and deployment of innovative solutions.",
-    image: ""
+    image: a1
   }
 ];
 
