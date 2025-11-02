@@ -6,7 +6,7 @@ import sharanyoImg from "@/assets/sharanyo.jpg";
 import abhinavaImg from "@/assets/abhinava.jpg";
 import tejasImg from "@/assets/tejas.jpg";
 import ayushmanImg from "@/assets/ahun.jpg";
-
+import ai from "@/assets/ayushman1.jpg";
 const teamMembers = [
   {
     name: "Jaipreet Purkayastha",
@@ -42,7 +42,7 @@ const teamMembers = [
     name: "Ayushman Singh",
     role: "Lead 3D Designer",
     expertise: "Thorough experience in 3D design and 3D printing with extensive knowledge of additive production and mechanical linkages. Creates custom 3D-printed components and designs for rapid prototyping and innovative solutions.",
-    image: ""
+    image: ai
   }
 ];
 
