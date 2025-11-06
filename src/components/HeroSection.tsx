@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden pt-24">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/80" />
       
@@ -79,7 +79,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="inline-block text-[#00008b] text-glow"
+            className="inline-block text-[#00008b]"
           >
             innovation
           </motion.span>
