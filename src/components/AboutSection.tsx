@@ -35,16 +35,6 @@ const AboutSection = () => {
           </p>
         </motion.div>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-3 gap-8 mb-16 max-w-4xl mx-auto"
-        >
-        </motion.div>
-
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
