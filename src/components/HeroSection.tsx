@@ -103,7 +103,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 1 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
         >
-          Professional drainage solutions keeping your property flowing smoothly
+          Professional drainage solutions keeping drains unclogged at all times
         </motion.p>
       </div>
 

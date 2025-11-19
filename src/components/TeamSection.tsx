@@ -48,7 +48,7 @@ const teamMembers = [
 ];
 
 const socialLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/happydrainsolutions?igsh=ZGV0Zjh6dDJoYnl4", icon: Instagram },
+  { label: "Instagram", href: "https://www.instagram.com/happy.drain.solutions/?utm_source=ig_web_button_share_sheet", icon: Instagram },
   { label: "Twitter", href: "https://twitter.com/", icon: Twitter },
   { label: "GitHub", href: "https://github.com/", icon: Github }
 ];
