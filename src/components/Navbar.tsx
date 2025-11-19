@@ -30,7 +30,7 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { label: "Instagram", href: "https://www.instagram.com/", icon: Instagram },
+    { label: "Instagram", href: "https://www.instagram.com/happydrainsolutions?igsh=ZGV0Zjh6dDJoYnl4", icon: Instagram },
     { label: "Twitter", href: "https://twitter.com/", icon: Twitter },
     { label: "GitHub", href: "https://github.com/", icon: Github },
   ];
