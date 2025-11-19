@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="min-h-screen pt-20 pb-16 px-4 md:px-8 relative">
+    <section id="about" className="py-16 md:py-20 px-4 md:px-8 relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-6 md:mb-8"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             About <span className="text-primary">Happy Drains Solutions</span>

@@ -5,7 +5,7 @@ import logo from "@/assets/logo1.jpg";
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="min-h-screen py-20 px-4 md:px-8 relative">
+    <section id="projects" className="pt-6 md:pt-10 pb-20 px-4 md:px-8 relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
