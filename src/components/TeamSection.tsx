@@ -62,7 +62,7 @@ const TeamSection = () => {
             Our <span className="text-primary">Team</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Professional drainage experts dedicated to keeping your property flowing
+            A team dedicated to keeping water flowing at all times 
           </p>
         </div>
 

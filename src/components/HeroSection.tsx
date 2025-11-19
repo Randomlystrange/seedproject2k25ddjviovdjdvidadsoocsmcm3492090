@@ -32,6 +32,18 @@ const HeroSection = () => {
           delay: 1
         }}
       />
+
+      {/* Ambient soft blue blobs */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.4 }}
+      >
+        <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] bg-sky-200/30 blur-[180px] rounded-full" />
+        <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-cyan-200/20 blur-[150px] rounded-full" />
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-300/20 blur-[140px] rounded-full" />
+      </motion.div>
       
       <div className="relative z-10 text-center max-w-5xl">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
