@@ -75,7 +75,7 @@ const ProjectsSection = () => {
               <Wrench className="w-12 h-12 mb-4 text-primary" />
               <h4 className="text-xl font-bold mb-2">Streamlined Work</h4>
               <p className="text-muted-foreground">
-                The drain will streamline the work of cleaners, all the while also preventing <span className="text-orange-500 font-semibold">waterlogging</span>
+                The drain will streamline the work of cleaners, all the while also preventing <span className="text-orange-500 font-semibold">waterlogging</span> and <span className="text-orange-500 font-semibold">flooding</span>
               </p>
             </div>
           </div>
