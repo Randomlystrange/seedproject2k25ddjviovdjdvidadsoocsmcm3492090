@@ -32,7 +32,7 @@ const ProjectsSection = () => {
             <div>
               <h3 className="text-3xl font-bold mb-4 text-primary">The Problem</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                This year, cities across the nation have suffered from a major problem— <strong>urban waterlogging</strong>. 
+                This year, cities across the nation have suffered from a major problem— <span className="text-orange-500 font-semibold">urban waterlogging</span>. 
                 Be it a bustling metropolis, or a small town, this is caused by a fundamental issue in the absolute root of 
                 drainage— the drains themselves. Falling prey to all sorts of clogging due to a range of reasons, solving 
                 this problem would greatly improve the ease of life of millions of Indians all across the country.
@@ -59,7 +59,7 @@ const ProjectsSection = () => {
               <Droplets className="w-12 h-12 mb-4 text-primary" />
               <h4 className="text-xl font-bold mb-2">Water Flows Free</h4>
               <p className="text-muted-foreground">
-                The drain remains open for water, which can pass right through, but traps all debris from small particles to large pebbles
+                The drain remains open for <span className="text-sky-500 font-semibold">water</span>, which can pass right through, but traps all <span className="text-orange-500 font-semibold">debris</span> from small particles to large pebbles
               </p>
             </div>
 
@@ -75,7 +75,7 @@ const ProjectsSection = () => {
               <Wrench className="w-12 h-12 mb-4 text-primary" />
               <h4 className="text-xl font-bold mb-2">Streamlined Work</h4>
               <p className="text-muted-foreground">
-                The drain will streamline the work of cleaners, all the while also preventing waterlogging
+                The drain will streamline the work of cleaners, all the while also preventing <span className="text-orange-500 font-semibold">waterlogging</span>
               </p>
             </div>
           </div>
