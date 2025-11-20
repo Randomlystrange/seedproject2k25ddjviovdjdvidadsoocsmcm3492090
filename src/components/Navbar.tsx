@@ -31,7 +31,7 @@ const Navbar = () => {
 
   const socialLinks = [
     { label: "Instagram", href: "https://www.instagram.com/happy.drain.solutions/?utm_source=ig_web_button_share_sheet", icon: Instagram },
-    { label: "Twitter", href: "https://twitter.com/", icon: Twitter },
+    { label: "Twitter", href: "https://x.com/happy_drain", icon: Twitter },
     { label: "GitHub", href: "https://github.com/", icon: Github },
   ];
 
