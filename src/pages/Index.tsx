@@ -13,11 +13,6 @@ const features = [
     title: "Mesh Debris Collection",
     description: "Built-in mesh catches leaves, dust, and debris while letting water flow through freely."
   },
-  {
-    icon: Shield,
-    title: "Easy DIY Cleaning",
-    description: "Clean and maintain the device yourself in minutes."
-  }
 ];
 
 const Index = () => {
