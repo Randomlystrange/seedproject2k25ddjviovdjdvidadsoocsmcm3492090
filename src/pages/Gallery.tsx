@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo1.jpg";
 
 // Model Design images
 import modelDesign1 from "@/assets/model-design-1.png";
@@ -36,13 +35,13 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  // Model Design
-  { src: modelDesign1, alt: "Model Design View 1", category: "Model Design" },
-  { src: modelDesign2, alt: "Model Design View 2", category: "Model Design" },
-  { src: modelDesign3, alt: "Model Design View 3", category: "Model Design" },
-  { src: modelDesign4, alt: "Model Design View 4", category: "Model Design" },
-  { src: modelDesign5, alt: "Model Design View 5", category: "Model Design" },
-  { src: modelDesign6, alt: "Model Design View 6", category: "Model Design" },
+  // Model
+  { src: modelDesign1, alt: "Model View 1", category: "Model" },
+  { src: modelDesign2, alt: "Model View 2", category: "Model" },
+  { src: modelDesign3, alt: "Model View 3", category: "Model" },
+  { src: modelDesign4, alt: "Model View 4", category: "Model" },
+  { src: modelDesign5, alt: "Model View 5", category: "Model" },
+  { src: modelDesign6, alt: "Model View 6", category: "Model" },
   // Prototype
   { src: prototype1, alt: "Prototype View 1", category: "Prototype" },
   { src: prototype2, alt: "Prototype View 2", category: "Prototype" },
@@ -51,24 +50,30 @@ const galleryImages: GalleryImage[] = [
   { src: prototype5, alt: "Prototype View 5", category: "Prototype" },
   { src: prototype6, alt: "Prototype View 6", category: "Prototype" },
   { src: prototype7, alt: "Prototype View 7", category: "Prototype" },
-  // Blueprints
-  { src: blueprint1, alt: "Blueprint Design 1", category: "Blueprints" },
-  { src: blueprint2, alt: "Blueprint Design 2", category: "Blueprints" },
-  { src: blueprint3, alt: "Blueprint Design 3", category: "Blueprints" },
-  { src: blueprint4, alt: "Blueprint Design 4", category: "Blueprints" },
-  // Brand
-  { src: logo, alt: "Happy Drains Solutions Logo", category: "Brand" },
+  // Blueprint
+  { src: blueprint1, alt: "Blueprint Design 1", category: "Blueprint" },
+  { src: blueprint2, alt: "Blueprint Design 2", category: "Blueprint" },
+  { src: blueprint3, alt: "Blueprint Design 3", category: "Blueprint" },
+  { src: blueprint4, alt: "Blueprint Design 4", category: "Blueprint" },
 ];
 
-const categories = ["All", "Model Design", "Prototype", "Blueprints", "Brand"];
+const categories = [
+  { id: "all", name: "All", description: "View all images" },
+  { id: "model", name: "Model", description: "3D Model designs and renders" },
+  { id: "prototype", name: "Prototype", description: "Physical prototype images" },
+  { id: "blueprint", name: "Blueprint", description: "Technical blueprint drawings" },
+];
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("all");
 
-  const filteredImages = activeCategory === "All" 
+  const filteredImages = activeCategory === "all" 
     ? galleryImages 
-    : galleryImages.filter(img => img.category === activeCategory);
+    : galleryImages.filter(img => img.category.toLowerCase() === activeCategory);
+
+  // Use galleryImages for lightbox when in "all" view to maintain correct indices
+  const lightboxImages = activeCategory === "all" ? galleryImages : filteredImages;
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -80,13 +85,13 @@ const Gallery = () => {
 
   const goToPrevious = () => {
     if (selectedImage !== null) {
-      setSelectedImage(selectedImage === 0 ? filteredImages.length - 1 : selectedImage - 1);
+      setSelectedImage(selectedImage === 0 ? lightboxImages.length - 1 : selectedImage - 1);
     }
   };
 
   const goToNext = () => {
     if (selectedImage !== null) {
-      setSelectedImage(selectedImage === filteredImages.length - 1 ? 0 : selectedImage + 1);
+      setSelectedImage(selectedImage === lightboxImages.length - 1 ? 0 : selectedImage + 1);
     }
   };
 
@@ -114,59 +119,143 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Category Filter */}
-      <section className="py-8 px-4 md:px-8">
+      {/* Category Filter Buttons */}
+      <section className="py-8 px-4 md:px-8 sticky top-20 z-40 bg-background/95 backdrop-blur-sm border-b">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <Button
-                key={category}
-                variant={activeCategory === category ? "default" : "outline"}
-                onClick={() => setActiveCategory(category)}
-                className="rounded-full"
+                key={category.id}
+                variant={activeCategory === category.id ? "default" : "outline"}
+                onClick={() => setActiveCategory(category.id)}
+                className={`rounded-full px-6 py-2 transition-all duration-300 ${
+                  activeCategory === category.id 
+                    ? "shadow-lg scale-105" 
+                    : "hover:scale-105"
+                }`}
               >
-                {category}
+                {category.name}
+                <span className="ml-2 text-xs opacity-70">
+                  ({category.id === "all" 
+                    ? galleryImages.length 
+                    : galleryImages.filter(img => img.category.toLowerCase() === category.id).length})
+                </span>
               </Button>
             ))}
           </div>
+          {activeCategory !== "all" && (
+            <motion.p 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center text-muted-foreground mt-4"
+            >
+              {categories.find(c => c.id === activeCategory)?.description}
+            </motion.p>
+          )}
         </div>
       </section>
 
-      {/* Gallery Grid */}
+      {/* Gallery Content */}
       <section className="py-8 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
-            layout
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredImages.map((image, index) => (
-                <motion.div
-                  key={image.alt}
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative group cursor-pointer overflow-hidden rounded-lg aspect-square"
-                  onClick={() => openLightbox(index)}
-                >
-                  <img 
-                    src={image.src} 
-                    alt={image.alt}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <ZoomIn className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                    <p className="text-white text-sm font-medium truncate">{image.alt}</p>
-                    <span className="text-white/70 text-xs">{image.category}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+          {activeCategory === "all" ? (
+            // Show sections for each category when "All" is selected
+            <div className="space-y-16">
+              {categories.filter(cat => cat.id !== "all").map((category) => {
+                const categoryImages = galleryImages.filter(
+                  img => img.category.toLowerCase() === category.id
+                );
+                if (categoryImages.length === 0) return null;
+                
+                return (
+                  <motion.div
+                    key={category.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    id={category.id}
+                  >
+                    <div className="flex items-center justify-between mb-6">
+                      <div>
+                        <h2 className="text-3xl font-bold text-primary">{category.name}</h2>
+                        <p className="text-muted-foreground">{category.description}</p>
+                      </div>
+                      <Button
+                        variant="outline"
+                        onClick={() => setActiveCategory(category.id)}
+                        className="rounded-full"
+                      >
+                        View All {category.name}
+                      </Button>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                      {categoryImages.map((image, index) => {
+                        const globalIndex = galleryImages.findIndex(img => img === image);
+                        return (
+                          <motion.div
+                            key={image.alt}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: index * 0.05 }}
+                            className="relative group cursor-pointer overflow-hidden rounded-lg aspect-square"
+                            onClick={() => openLightbox(globalIndex)}
+                          >
+                            <img 
+                              src={image.src} 
+                              alt={image.alt}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                              <ZoomIn className="w-8 h-8 text-white" />
+                            </div>
+                            <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                              <p className="text-white text-sm font-medium truncate">{image.alt}</p>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          ) : (
+            // Show filtered grid when a category is selected
+            <motion.div 
+              layout
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+            >
+              <AnimatePresence mode="popLayout">
+                {filteredImages.map((image, index) => (
+                  <motion.div
+                    key={image.alt}
+                    layout
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative group cursor-pointer overflow-hidden rounded-lg aspect-square"
+                    onClick={() => openLightbox(index)}
+                  >
+                    <img 
+                      src={image.src} 
+                      alt={image.alt}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <ZoomIn className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                      <p className="text-white text-sm font-medium truncate">{image.alt}</p>
+                      <span className="text-white/70 text-xs">{image.category}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          )}
         </div>
       </section>
 
@@ -206,15 +295,15 @@ const Gallery = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              src={filteredImages[selectedImage].src}
-              alt={filteredImages[selectedImage].alt}
+              src={lightboxImages[selectedImage].src}
+              alt={lightboxImages[selectedImage].alt}
               className="max-w-full max-h-[80vh] object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
             
             <div className="absolute bottom-4 left-0 right-0 text-center">
-              <p className="text-white text-lg font-medium">{filteredImages[selectedImage].alt}</p>
-              <p className="text-white/70 text-sm">{selectedImage + 1} / {filteredImages.length}</p>
+              <p className="text-white text-lg font-medium">{lightboxImages[selectedImage].alt}</p>
+              <p className="text-white/70 text-sm">{lightboxImages[selectedImage].category} • {selectedImage + 1} / {lightboxImages.length}</p>
             </div>
           </motion.div>
         )}
