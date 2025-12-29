@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import productViews from "@/assets/Screenshot 2025-12-28 164951_o1.jpg";
 import logo from "@/assets/logo1.jpg";
 
 // Model Design images
@@ -57,12 +56,11 @@ const galleryImages: GalleryImage[] = [
   { src: blueprint2, alt: "Blueprint Design 2", category: "Blueprints" },
   { src: blueprint3, alt: "Blueprint Design 3", category: "Blueprints" },
   { src: blueprint4, alt: "Blueprint Design 4", category: "Blueprints" },
-  // Product & Brand
-  { src: productViews, alt: "Happy Drain Product Design", category: "Product" },
+  // Brand
   { src: logo, alt: "Happy Drains Solutions Logo", category: "Brand" },
 ];
 
-const categories = ["All", "Model Design", "Prototype", "Blueprints", "Product", "Brand"];
+const categories = ["All", "Model Design", "Prototype", "Blueprints", "Brand"];
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
