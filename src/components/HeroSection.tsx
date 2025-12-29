@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
@@ -101,10 +104,28 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
+          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
         >
           Professional drainage solutions keeping drains unclogged at all times
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+        >
+          <Link to="/services">
+            <Button size="lg" className="w-full sm:w-auto gap-2 text-lg px-8 py-6">
+              Explore Our Solution <ArrowRight className="w-5 h-5" />
+            </Button>
+          </Link>
+          <Link to="/contact">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 text-lg px-8 py-6">
+              <Phone className="w-5 h-5" /> Contact Us
+            </Button>
+          </Link>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}

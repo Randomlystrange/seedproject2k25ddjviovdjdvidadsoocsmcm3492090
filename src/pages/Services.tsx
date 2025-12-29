@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Droplets, Shield, Wrench, Zap, Truck, Clock, CheckCircle, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Droplets, Shield, CheckCircle, Instagram, Twitter, Github } from "lucide-react";
 import productViews from "@/assets/Screenshot 2025-12-28 164951_o1.jpg";
 
 const services = [
@@ -18,38 +16,13 @@ const services = [
     title: "Flood Prevention",
     description: "Protect your property and neighborhood from flooding with our advanced drainage solutions.",
     features: ["Rapid water drainage", "Storm-ready systems", "24/7 monitoring options"]
-  },
-  {
-    icon: Wrench,
-    title: "Installation & Setup",
-    description: "Professional installation of Happy Drain systems tailored to your specific needs.",
-    features: ["Expert technicians", "Quick installation", "Minimal disruption"]
-  },
-  {
-    icon: Zap,
-    title: "Emergency Services",
-    description: "When disaster strikes, our emergency response team is ready to help clear drains and prevent damage.",
-    features: ["24/7 availability", "Rapid response", "Emergency equipment"]
-  },
-  {
-    icon: Truck,
-    title: "Commercial Solutions",
-    description: "Large-scale drainage solutions for commercial properties, municipalities, and industrial areas.",
-    features: ["Custom designs", "Scalable systems", "Bulk installations"]
-  },
-  {
-    icon: Clock,
-    title: "Maintenance Plans",
-    description: "Regular maintenance keeps your drainage system running at peak efficiency year-round.",
-    features: ["Scheduled cleanings", "System inspections", "Priority support"]
   }
 ];
 
-const processSteps = [
-  { step: 1, title: "Consultation", description: "We assess your drainage needs and challenges" },
-  { step: 2, title: "Design", description: "Custom solution designed for your specific situation" },
-  { step: 3, title: "Installation", description: "Professional installation by our expert team" },
-  { step: 4, title: "Support", description: "Ongoing maintenance and support" }
+const socialLinks = [
+  { label: "Instagram", href: "https://www.instagram.com/happy.drain.solutions/", icon: Instagram },
+  { label: "Twitter", href: "https://x.com/happy_drain", icon: Twitter },
+  { label: "GitHub", href: "https://github.com/", icon: Github },
 ];
 
 const Services = () => {
@@ -126,7 +99,7 @@ const Services = () => {
           >
             What We <span className="text-primary">Offer</span>
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -153,39 +126,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-16 px-4 md:px-8">
-        <div className="max-w-5xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-12"
-          >
-            Our <span className="text-primary">Process</span>
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold flex items-center justify-center mx-auto mb-4">
-                  {step.step}
-                </div>
-                <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
+      {/* CTA Section with Social Media */}
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -195,16 +136,25 @@ const Services = () => {
             className="card-glass p-8 md:p-12 rounded-lg text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to <span className="text-primary">Get Started?</span>
+              Connect <span className="text-primary">With Us</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Contact us today to discuss your drainage needs and get a free consultation.
+              Follow us on social media to stay updated with our latest developments and news.
             </p>
-            <Link to="/contact">
-              <Button size="lg" className="gap-2">
-                Contact Us <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
+                  <link.icon className="w-5 h-5" />
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>

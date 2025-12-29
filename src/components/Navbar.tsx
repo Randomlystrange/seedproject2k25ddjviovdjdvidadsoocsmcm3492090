@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Twitter, Github } from "lucide-react";
 import logo from "@/assets/logo1.jpg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,19 +16,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsMobileMenuOpen(false);
-    }
-  };
-
   const navItems = [
-    { label: "Home", id: "home" },
-    { label: "About", id: "about" },
-    { label: "Projects", id: "projects" },
-    { label: "Team", id: "team" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Team", href: "/team" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const socialLinks = [
@@ -35,35 +31,46 @@ const Navbar = () => {
     { label: "GitHub", href: "https://github.com/", icon: Github },
   ];
 
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(href);
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "card-glass shadow-lg" : "bg-transparent"
+        isScrolled ? "card-glass shadow-lg" : "bg-background/80 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button
-            onClick={() => scrollToSection("home")}
+          <Link
+            to="/"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
             <img src={logo} alt="Happy Drains Solutions" className="h-12 w-auto rounded-lg" />
             <span className="text-xl font-bold hidden md:block">Happy Drains Solutions</span>
-          </button>
+          </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-foreground/80 hover:text-foreground transition-colors font-medium"
+              <Link
+                key={item.href}
+                to={item.href}
+                className={`transition-colors font-medium ${
+                  isActive(item.href)
+                    ? "text-primary"
+                    : "text-foreground/80 hover:text-foreground"
+                }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 ml-2">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
@@ -90,17 +97,22 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 card-glass">
+          <div className="md:hidden py-4 card-glass rounded-b-lg">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left py-3 px-4 text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-colors"
+              <Link
+                key={item.href}
+                to={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block w-full text-left py-3 px-4 transition-colors ${
+                  isActive(item.href)
+                    ? "text-primary bg-primary/10"
+                    : "text-foreground/80 hover:text-foreground hover:bg-muted/50"
+                }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
-            <div className="px-4 pt-2 flex items-center gap-3">
+            <div className="px-4 pt-4 pb-2 flex items-center gap-3 border-t border-border mt-2">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}

@@ -5,7 +5,7 @@ import samarohaImg from "@/assets/samaroha.jpg";
 import sharanyoImg from "@/assets/sharanyo.jpg";
 import abhinavaImg from "@/assets/abhinava.jpg";
 import tejasImg from "@/assets/tejas.jpg";
-import ayushmanImg from "@/assets/ahun.jpg";
+import ayushmanImg from "@/assets/ayushman.jpg";
 import ai from "@/assets/ayushman1.jpg";
 import { Github, Instagram, Twitter } from "lucide-react";
 const teamMembers = [
