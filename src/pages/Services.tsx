@@ -20,14 +20,14 @@ const productFeatures = [
   {
     icon: Wrench,
     title: "Easy DIY Maintenance",
-    description: "Simply remove the mesh compartment, empty the debris, and put it back. No tools needed.",
+    description: "Simply remove the mesh, empty the debris, and put it back. No tools needed.",
     features: ["No professional help needed", "Quick 2-minute cleaning", "Reusable mesh"]
   },
   {
     icon: Recycle,
-    title: "Eco-Friendly Design",
-    description: "Made with sustainable materials and designed to reduce urban flooding naturally.",
-    features: ["Recyclable components", "Reduces pollution", "Sustainable solution"]
+    title: "Sustainable Design",
+    description: "Made with eco-friendly materials and designed to reduce urban flooding naturally.",
+    features: ["Eco-friendly materials", "Recyclable components", "Lower environmental footprint"]
   }
 ];
 
