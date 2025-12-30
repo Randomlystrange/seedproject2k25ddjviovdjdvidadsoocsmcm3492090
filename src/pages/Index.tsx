@@ -36,7 +36,7 @@ const Index = () => {
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               We create simple, effective drainage devices. The Happy Drain uses a mesh system to catch 
-              debris before it clogs your drains—no professional help needed!
+              debris before it clogs your drains and leads to flooding.
             </p>
           </motion.div>
 
