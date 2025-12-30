@@ -14,13 +14,14 @@ import modelDesign5 from "@/assets/model-design-5.png";
 import modelDesign6 from "@/assets/model-design-6.png";
 
 // Prototype images
-import prototype1 from "@/assets/prototype-1.png";
-import prototype2 from "@/assets/prototype-2.png";
-import prototype3 from "@/assets/prototype-3.png";
-import prototype4 from "@/assets/prototype-4.png";
-import prototype5 from "@/assets/prototype-5.png";
-import prototype6 from "@/assets/prototype-6.png";
-import prototype7 from "@/assets/prototype-7.png";
+import prototype1 from "@/assets/Full/Full/Screenshot 2025-12-27 164343.png";
+import prototype2 from "@/assets/Full/Full/Screenshot 2025-12-27 164607.png";
+import prototype3 from "@/assets/Full/Full/Screenshot 2025-12-28 222655.png";
+import prototype4 from "@/assets/Full/Full/Screenshot 2025-12-28 222702.png";
+import prototype5 from "@/assets/Full/Full/Screenshot 2025-12-28 222840.png";
+import prototype6 from "@/assets/Full/Full/Screenshot 2025-12-28 222844.png";
+import prototype7 from "@/assets/Full/Full/Screenshot 2025-12-28 222914.png";
+import prototype8 from "@/assets/Full/Full/Screenshot 2025-12-28 222918.png";
 
 // Blueprint images
 import blueprint1 from "@/assets/blueprint-1.png";
@@ -50,6 +51,7 @@ const galleryImages: GalleryImage[] = [
   { src: prototype5, alt: "Prototype View 5", category: "Prototype" },
   { src: prototype6, alt: "Prototype View 6", category: "Prototype" },
   { src: prototype7, alt: "Prototype View 7", category: "Prototype" },
+  { src: prototype8, alt: "Prototype View 8", category: "Prototype" },
   // Blueprint
   { src: blueprint1, alt: "Blueprint Design 1", category: "Blueprint" },
   { src: blueprint2, alt: "Blueprint Design 2", category: "Blueprint" },

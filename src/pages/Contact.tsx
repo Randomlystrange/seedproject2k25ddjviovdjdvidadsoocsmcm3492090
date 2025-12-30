@@ -3,16 +3,28 @@ import { Mail, MapPin, Instagram, Send, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import emailjs from "@emailjs/browser";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// EmailJS Configuration
+// To set up EmailJS:
+// 1. Create a free account at https://www.emailjs.com/
+// 2. Create an Email Service (e.g., Gmail) and note the Service ID
+// 3. Create an Email Template with variables: {{from_name}}, {{from_email}}, {{phone}}, {{subject}}, {{message}}
+// 4. Get your Public Key from Account > API Keys
+// 5. Replace the values below with your actual IDs
+const EMAILJS_SERVICE_ID = "service_9qbtcdn"; // Replace with your EmailJS Service ID
+const EMAILJS_TEMPLATE_ID = "template_ri6a94d"; // Replace with your EmailJS Template ID
+const EMAILJS_PUBLIC_KEY = "30X8wRD6_tXvZStLr"; // Replace with your EmailJS Public Key
 
 const contactInfo = [
   {
@@ -56,6 +68,7 @@ const faqs = [
 
 const Contact = () => {
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -69,15 +82,39 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    setIsSubmitting(false);
+    try {
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || "Not provided",
+        subject: formData.subject,
+        message: formData.message,
+        to_email: "happydrainsolutionsstfe@gmail.com",
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you as soon as possible.",
+      });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact us directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
