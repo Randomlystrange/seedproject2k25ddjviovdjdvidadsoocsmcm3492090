@@ -100,6 +100,8 @@ const Index = () => {
               <img 
                 src={productViews} 
                 alt="Happy Drain product design" 
+                loading="lazy"
+                decoding="async"
                 className="w-full rounded-lg shadow-xl"
               />
             </motion.div>

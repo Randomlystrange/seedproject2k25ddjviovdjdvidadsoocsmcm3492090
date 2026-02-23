@@ -65,6 +65,8 @@ const Team = () => {
               <img
                 src={member.image}
                 alt={member.name}
+                loading="lazy"
+                decoding="async"
                 className="w-32 h-32 mx-auto mb-4 rounded-full object-cover shadow-md"
               />
               <h3 className="text-lg font-bold">{member.name}</h3>
