@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Droplets, Shield, CheckCircle, Instagram, Twitter, Wrench, Recycle } from "lucide-react";
 import productViews from "@/assets/Screenshot 2025-12-28 164951_o1.jpg";
+import WaterWheelDivider from "@/components/WaterWheelDivider";
 
 const productFeatures = [
   {
@@ -61,6 +62,8 @@ const Services = () => {
         </div>
       </section>
 
+      <WaterWheelDivider />
+
       {/* Product Showcase */}
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
@@ -98,6 +101,8 @@ const Services = () => {
           </motion.div>
         </div>
       </section>
+
+      <WaterWheelDivider />
 
       {/* Services Grid */}
       <section className="py-16 px-4 md:px-8 bg-muted/30">
