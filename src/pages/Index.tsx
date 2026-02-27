@@ -21,7 +21,7 @@ const Index = () => {
     <main className="min-h-screen">
       <Navbar />
       <HeroSection />
-      
+
       <WaterWheelDivider />
 
       {/* About Preview Section */}
