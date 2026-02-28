@@ -13,8 +13,8 @@ const WaterWheelDivider = () => {
 
   // Wheel rotation: full turns as user scrolls through the section
   const wheelRotation = useTransform(scrollYProgress, [0, 1], [0, 720]);
-  // Wheel horizontal position: moves from right to left
-  const wheelX = useTransform(scrollYProgress, [0, 1], ["85%", "-15%"]);
+  // Wheel horizontal position: moves from left to right (was right to left)
+  const wheelX = useTransform(scrollYProgress, [0, 1], ["-15%", "85%"]);
   // Fade in/out
   const fadeIn = useTransform(scrollYProgress, [0, 0.1, 0.85, 1], [0, 1, 1, 0]);
 
@@ -30,7 +30,7 @@ const WaterWheelDivider = () => {
         style={{ opacity: fadeIn }}
       />
 
-      {/* ── Water Wheel (moves right-to-left while rotating) ── */}
+      {/* ── Water Wheel (moves left-to-right while rotating) ── */}
       <motion.div
         className="absolute top-1/2 -translate-y-1/2 z-10"
         style={{ left: wheelX, opacity: fadeIn }}
