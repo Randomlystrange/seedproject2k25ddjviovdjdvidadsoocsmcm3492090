@@ -117,3 +117,60 @@ All colors MUST be HSL.
   }
 }
 
+
+/* Performance optimizations */
+@layer utilities {
+  /* GPU acceleration */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Reduce layout thrashing */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Optimize animations */
+  .animation-optimized {
+    transform: translateZ(0);
+    animation-fill-mode: both;
+    outline: 1px solid transparent;
+  }
+
+  /* Smooth scrolling with GPU */
+  .smooth-scroll {
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Reduced motion for accessibility & performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-display: swap;
+}
+
+/* Prevent layout shift */
+[hidden] {
+  display: none !important;
+}

@@ -9,9 +9,9 @@ const HeroSection = () => {
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/80" />
       
-      {/* Floating orbs for visual interest */}
+      {/* Floating orbs for visual interest - will-change for GPU optimization */}
       <motion.div 
-        className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl"
+        className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl will-change-transform gpu-accelerated"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3]
@@ -23,7 +23,7 @@ const HeroSection = () => {
         }}
       />
       <motion.div 
-        className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+        className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl will-change-transform gpu-accelerated"
         animate={{
           scale: [1, 1.3, 1],
           opacity: [0.2, 0.4, 0.2]
@@ -43,9 +43,9 @@ const HeroSection = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.4 }}
       >
-        <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] bg-sky-200/30 blur-[180px] rounded-full" />
-        <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-cyan-200/20 blur-[150px] rounded-full" />
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-300/20 blur-[140px] rounded-full" />
+        <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] bg-sky-200/30 blur-[180px] rounded-full will-change-transform gpu-accelerated" />
+        <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-cyan-200/20 blur-[150px] rounded-full will-change-transform gpu-accelerated" />
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-300/20 blur-[140px] rounded-full will-change-transform gpu-accelerated" />
       </motion.div>
       
       <div className="relative z-10 text-center max-w-5xl">
