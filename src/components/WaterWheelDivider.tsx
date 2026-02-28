@@ -1,22 +1,53 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const NUM_PADDLES = 8;
 
 const WaterWheelDivider = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const hasInitialized = useRef(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
+  // Smooth out the scroll progress with spring physics
+  // This makes mouse wheel scrolling feel smooth even without smoothscroll enabled
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    mass: 0.5,
+  });
+
   // Wheel rotation: full turns as user scrolls through the section
-  const wheelRotation = useTransform(scrollYProgress, [0, 1], [0, 720]);
-  // Wheel horizontal position: moves from left to right (was right to left)
-  const wheelX = useTransform(scrollYProgress, [0, 1], ["-15%", "85%"]);
+  const wheelRotation = useTransform(smoothProgress, [0, 1], [0, 720]);
+  
+  // Wheel horizontal position: moves from left to right
+  // Using 0% to 100% for absolute positioning
+  const wheelX = useTransform(smoothProgress, [0, 1], ["5%", "95%"]);
+  
   // Fade in/out
-  const fadeIn = useTransform(scrollYProgress, [0, 0.1, 0.85, 1], [0, 1, 1, 0]);
+  const fadeIn = useTransform(smoothProgress, [0, 0.1, 0.85, 1], [0, 1, 1, 0]);
+
+  // Reset position on page navigation
+  useEffect(() => {
+    const handleLoad = () => {
+      if (!hasInitialized.current) {
+        hasInitialized.current = true;
+        return;
+      }
+      // Small delay to ensure page has rendered
+      setTimeout(() => {
+        // Force recalculation of scroll progress
+        window.scrollBy(0, 1);
+        setTimeout(() => window.scrollBy(0, -1), 10);
+      }, 100);
+    };
+
+    window.addEventListener("load", handleLoad);
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
 
   return (
     <div
