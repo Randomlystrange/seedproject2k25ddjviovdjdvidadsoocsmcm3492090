@@ -115,7 +115,7 @@ const Gallery = () => {
               Photo <span className="text-primary">Gallery</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Explore our model designs, prototypes, and blueprints of the Happy Drain device.
+              Explore our model designs, prototypes, and blueprints of the ClearFlow device.
             </p>
           </motion.div>
         </div>

@@ -1,4 +1,4 @@
-# Happy Drains solutions (HDS)
+# ClearFlow solutions (HDS)
 ### Our premise:
 We are a team of highly dedicated individuals who want to revolutionize the drain cleaning industry
 We have created a product which can compete effectively with other giants in the space fo a huge section of the market.

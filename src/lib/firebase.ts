@@ -1,4 +1,4 @@
-// Firebase Configuration for Happy Drains Solutions Blog
+// Firebase Configuration for ClearFlow Solutions Blog
 //
 // ⚠️ IMPORTANT: You need to set up your own Firebase project!
 //

@@ -35,10 +35,10 @@ const Index = () => {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              About <span className="text-primary">Happy Drains Solutions</span>
+              About <span className="text-primary">ClearFlow Solutions</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We create simple, effective drainage devices. The Happy Drain uses a mesh system to catch 
+              We create simple, effective drainage devices. The ClearFlow uses a mesh system to catch 
               debris before it clogs your drains and leads to flooding.
             </p>
           </motion.div>
@@ -83,10 +83,10 @@ const Index = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-4xl font-bold mb-6">
-                The <span className="text-primary">Happy Drain</span> System
+                The <span className="text-primary">ClearFlow</span> System
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                The Happy Drain features a built-in mesh that catches all the dust, leaves, and debris 
+                The ClearFlow features a built-in mesh that catches all the dust, leaves, and debris 
                 that would normally clog your drains. Water flows through freely, while everything else 
                 gets collected in a removable compartment you can easily empty yourself.
               </p>
@@ -104,7 +104,7 @@ const Index = () => {
             >
               <img 
                 src={productViews} 
-                alt="Happy Drain product design" 
+                alt="ClearFlow product design" 
                 className="w-full rounded-lg shadow-xl"
               />
             </motion.div>
@@ -153,7 +153,7 @@ const Index = () => {
               Ready to <span className="text-primary">Get Started?</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Contact us today to discuss your drainage needs and discover how the Happy Drain can help 
+              Contact us today to discuss your drainage needs and discover how the ClearFlow can help 
               your community stay flood-free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

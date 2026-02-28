@@ -25,8 +25,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Happy Drains Solutions" className="h-12 w-auto rounded-lg" />
-              <span className="text-xl font-bold">Happy Drains</span>
+              <img src={logo} alt="ClearFlow Solutions" className="h-12 w-auto rounded-lg" />
+              <span className="text-xl font-bold">ClearFlow</span>
             </Link>
             <p className="text-muted-foreground text-sm mb-4">
               Innovative drainage solutions for a flood-free future. Keeping water flowing, keeping cities happy.
@@ -68,7 +68,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Happy Drain Device</li>
+              <li>ClearFlow Device</li>
               <li>Debris Collection Mesh</li>
               <li>Easy DIY Installation</li>
             </ul>
@@ -102,10 +102,10 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} Happy Drains Solutions. All rights reserved.
+              © {currentYear} ClearFlow Solutions. All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by the Happy Drains Team
+              Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by the ClearFlow Team
             </p>
           </div>
         </div>

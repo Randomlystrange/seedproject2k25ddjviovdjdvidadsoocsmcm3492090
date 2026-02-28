@@ -307,7 +307,7 @@ const Blog = () => {
               Our <span className="text-primary">Blog</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-              Stay updated with the latest news, insights, and updates from Happy Drains Solutions.
+              Stay updated with the latest news, insights, and updates from ClearFlow Solutions.
               Our blog is open to everyone - only posting requires admin access.
             </p>
             <Button onClick={() => setIsAdminOpen(true)} variant="outline" className="gap-2">

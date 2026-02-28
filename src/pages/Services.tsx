@@ -53,7 +53,7 @@ const Services = () => {
             className="text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              The <span className="text-primary">Happy Drain</span>
+              The <span className="text-primary">ClearFlow</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               A simple, effective device that keeps your drains clog-free with a built-in debris collection mesh.
@@ -79,7 +79,7 @@ const Services = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  The Happy Drain features a clever mesh system that sits inside your drain. 
+                  The ClearFlow features a clever mesh system that sits inside your drain. 
                   Water flows through easily, but dust, leaves, and debris get caught in the 
                   removable mesh compartment. When it's full, just lift it out, empty it, and pop it back in!
                 </p>
@@ -94,7 +94,7 @@ const Services = () => {
               </div>
               <img 
                 src={productViews} 
-                alt="Happy Drain product design" 
+                alt="ClearFlow product design" 
                 className="w-full rounded-lg shadow-lg"
               />
             </div>

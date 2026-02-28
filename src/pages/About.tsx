@@ -67,8 +67,8 @@ const About = () => {
             >
               <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Happy Drains Solutions creates simple, effective drainage devices that anyone can use. 
-                Our Happy Drain features a built-in mesh that collects dust, leaves, and debris—
+                ClearFlow Solutions creates simple, effective drainage devices that anyone can use. 
+                Our ClearFlow features a built-in mesh that collects dust, leaves, and debris—
                 preventing clogs before they happen.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
