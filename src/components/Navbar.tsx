@@ -51,8 +51,8 @@ const Navbar = () => {
             to="/"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <img src={logo} alt="ClearFlow Solutions" className="h-12 w-auto rounded-lg" />
-            <span className="text-xl font-bold hidden md:block">ClearFlow Solutions</span>
+            <img src={logo} alt="Happy Drains Solutions" className="h-12 w-auto rounded-lg" />
+            <span className="text-xl font-bold hidden md:block">Happy Drains Solutions</span>
           </Link>
 
           {/* Desktop Menu */}

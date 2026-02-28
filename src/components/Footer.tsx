@@ -25,7 +25,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="ClearFlow Solutions" className="h-12 w-auto rounded-lg" />
+              <img src={logo} alt="Happy Drains Solutions" className="h-12 w-auto rounded-lg" />
               <span className="text-xl font-bold">ClearFlow</span>
             </Link>
             <p className="text-muted-foreground text-sm mb-4">
@@ -102,7 +102,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} ClearFlow Solutions. All rights reserved.
+              © {currentYear} Happy Drains Solutions. All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground flex items-center gap-1">
               Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by the ClearFlow Team
