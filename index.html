@@ -16,86 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    <script>
-      // Force smooth scroll behavior via JS (works even if disabled in chrome://flags)
-      (function() {
-        let isScrolling = false;
-        
-        // Override native scroll behavior
-        Object.defineProperty(window, 'scroll', {
-          set: function(value) {
-            if (value && value.behavior === 'smooth') {
-              // JS-based smooth scroll fallback
-              const target = value.top;
-              const start = window.scrollY;
-              const duration = 300;
-              const startTime = performance.now();
-              
-              function step(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                // Ease out quad
-                const ease = 1 - (1 - progress) * (1 - progress);
-                window.scrollTo(0, start + (target - start) * ease);
-                
-                if (progress < 1) {
-                  requestAnimationFrame(step);
-                } else {
-                  isScrolling = false;
-                }
-              }
-              
-              isScrolling = true;
-              requestAnimationFrame(step);
-              return;
-            }
-            this._scroll = value;
-            this.scrollTo(value.left || 0, value.top || 0);
-          },
-          get: function() {
-            return this._scroll || { top: window.scrollY, left: window.scrollX };
-          }
-        });
-
-        // Add smooth scroll to html element
-        document.documentElement.style.scrollBehavior = 'auto';
-        
-        // Intercept click on anchor links
-        document.addEventListener('click', function(e) {
-          const target = e.target.closest('a[href^="#"]');
-          if (target) {
-            e.preventDefault();
-            const id = target.getAttribute('href').slice(1);
-            const element = document.getElementById(id);
-            if (element) {
-              const top = element.getBoundingClientRect().top + window.scrollY;
-              const start = window.scrollY;
-              const duration = 400;
-              const startTime = performance.now();
-              
-              function step(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                // Ease out cubic
-                const ease = 1 - Math.pow(1 - progress, 3);
-                window.scrollTo(0, start + (top - start) * ease);
-                
-                if (progress < 1) {
-                  requestAnimationFrame(step);
-                }
-              }
-              
-              requestAnimationFrame(step);
-            }
-          }
-        }, true);
-      })();
-    </script>
-    
     <style>
-      /* Force smooth scrolling globally */
       html {
-        scroll-behavior: auto !important;
+        scroll-behavior: smooth;
         scroll-padding-top: 80px;
       }
     </style>
