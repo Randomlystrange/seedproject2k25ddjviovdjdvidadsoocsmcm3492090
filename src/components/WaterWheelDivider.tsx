@@ -1,58 +1,20 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValue, useAnimationFrame } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const NUM_PADDLES = 8;
 
 const WaterWheelDivider = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const wheelRef = useRef<SVGSVGElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  // Motion value that we'll update every frame for continuous rotation
-  const rotation = useMotionValue(0);
-
-  // Continuously increment rotation - this makes the wheel spin ALWAYS
-  useAnimationFrame((_, delta) => {
-    if (delta) {
-      // ~60 degrees per second for smooth, visible spinning
-      rotation.set(rotation.get() + (delta / 1000) * 60);
-    }
-  });
-
-  // Scroll-based extra rotation (adds on top of continuous)
-  const scrollRotation = useTransform(scrollYProgress, [0, 1], [0, 360]);
-
-  // Combine: continuous spin + scroll progress with spring physics
-  const wheelRotation = useSpring(
-    useTransform(scrollYProgress, (scrollVal) => {
-      // Get current rotation value and add scroll contribution
-      return rotation.get() + scrollVal * 360;
-    }),
-    { damping: 30, stiffness: 120, mass: 0.8 }
-  );
-
-  // Horizontal movement with scroll
+  // Direct scroll progress (no spring - that was causing lag)
+  const wheelRotation = useTransform(scrollYProgress, [0, 1], [0, 720]);
   const wheelX = useTransform(scrollYProgress, [0, 1], ["5%", "95%"]);
-  
-  // Fade effect
   const fadeIn = useTransform(scrollYProgress, [0, 0.1, 0.85, 1], [0, 1, 1, 0]);
-
-  // Subtle vertical parallax
-  const parallaxOffset = useTransform(scrollYProgress, [0, 0.5, 1], [0, 8, 0]);
-
-  // Subtle scale pulse
-  const wheelScale = useSpring(1, { damping: 20, stiffness: 150 });
-
-  useAnimationFrame(() => {
-    // Gentle breathing/pulsing effect
-    const time = Date.now() / 1000;
-    const scale = 1 + Math.sin(time * 2) * 0.015;
-    wheelScale.set(scale);
-  });
 
   return (
     <div
@@ -60,27 +22,20 @@ const WaterWheelDivider = () => {
       className="relative w-full h-[120px] md:h-[160px] overflow-hidden select-none pointer-events-none"
       aria-hidden="true"
     >
-      {/* Divider line */}
+      {/* Subtle divider line */}
       <motion.div
         className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"
         style={{ opacity: fadeIn }}
       />
 
-      {/* Water Wheel */}
+      {/* Water Wheel (moves left-to-right while rotating) */}
       <motion.div
         className="absolute top-1/2 -translate-y-1/2 z-10"
-        style={{ 
-          left: wheelX, 
-          opacity: fadeIn,
-          y: parallaxOffset,
-          scale: wheelScale,
-        }}
+        style={{ left: wheelX, opacity: fadeIn }}
       >
-        {/* Glow effect */}
-        <div className="absolute inset-0 -m-6 rounded-full blur-xl bg-primary/20" />
-        
+        {/* Glow behind wheel */}
+        <div className="absolute inset-0 -m-8 rounded-full blur-2xl bg-primary/10" />
         <motion.svg
-          ref={wheelRef}
           width="160"
           height="160"
           viewBox="-80 -80 160 160"
@@ -97,7 +52,7 @@ const WaterWheelDivider = () => {
           <circle cx="0" cy="0" r="6" fill="hsl(211 100% 50%)" />
           <circle cx="0" cy="0" r="3" fill="hsl(211 100% 70%)" />
 
-          {/* Paddles */}
+          {/* Spokes & paddles */}
           {Array.from({ length: NUM_PADDLES }).map((_, i) => {
             const angle = (i * 360) / NUM_PADDLES;
             const rad = (angle * Math.PI) / 180;
