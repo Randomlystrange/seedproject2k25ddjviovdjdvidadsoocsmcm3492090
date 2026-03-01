@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { ArrowRight, Droplets, Shield, Image } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import productViews from "@/assets/Screenshot 2025-12-28 164951_o1.jpg";
-import WaterWheelDivider from "@/components/WaterWheelDivider";
+import SectionProgressDivider from "@/components/SectionProgressDivider";
 
 const features = [
   {
@@ -22,7 +22,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
 
-      <WaterWheelDivider />
+      <SectionProgressDivider />
 
       {/* About Preview Section */}
       <section className="py-20 px-4 md:px-8">
@@ -70,7 +70,7 @@ const Index = () => {
         </div>
       </section>
 
-      <WaterWheelDivider />
+      <SectionProgressDivider />
 
       {/* Product Preview Section */}
       <section className="py-20 px-4 md:px-8 bg-muted/30">
@@ -137,7 +137,7 @@ const Index = () => {
         </div>
       </section>
 
-      <WaterWheelDivider />
+      <SectionProgressDivider />
 
       {/* CTA Section */}
       <section className="py-20 px-4 md:px-8">

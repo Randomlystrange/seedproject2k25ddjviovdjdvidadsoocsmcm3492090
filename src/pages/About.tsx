@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CheckCircle, Target, Heart, Lightbulb } from "lucide-react";
-import WaterWheelDivider from "@/components/WaterWheelDivider";
+import SectionProgressDivider from "@/components/SectionProgressDivider";
 
 const values = [
   {
@@ -53,7 +53,7 @@ const About = () => {
         </div>
       </section>
 
-      <WaterWheelDivider />
+      <SectionProgressDivider />
 
       {/* Mission Section */}
       <section className="py-16 px-4 md:px-8">
@@ -94,7 +94,7 @@ const About = () => {
         </div>
       </section>
 
-      <WaterWheelDivider />
+      <SectionProgressDivider />
 
       {/* Values Section */}
       <section className="py-16 px-4 md:px-8 bg-muted/30">
