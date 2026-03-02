@@ -49,8 +49,8 @@ const contactInfo = [
 
 const faqs = [
   {
-    question: "What is the ClearFlow?",
-    answer: "The ClearFlow is a simple drainage device with a built-in mesh that catches dust, leaves, and debris. Water flows through freely while the mesh collects everything else in a removable compartment."
+    question: "What is ClearFlow?",
+    answer: "ClearFlow is a simple drainage device with a built-in mesh that catches dust, leaves, and debris. Water flows through freely while the mesh collects everything else in a removable compartment."
   },
   {
     question: "How does the mesh system work?",
@@ -61,7 +61,7 @@ const faqs = [
     answer: "The mesh is made from durable materials and is designed to last for years with proper care. Replacement meshes are also available."
   },
   {
-    question: "Where can I buy the ClearFlow?",
+    question: "Where can I buy ClearFlow?",
     answer: "Contact us through email or Instagram and we'll help you get your ClearFlow!"
   }
 ];
