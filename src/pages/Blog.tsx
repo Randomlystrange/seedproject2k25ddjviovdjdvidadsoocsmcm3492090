@@ -498,9 +498,6 @@ const Blog = () => {
               animate={{ opacity: 1 }}
               className="text-center py-16"
             >
-              <p className="text-xl text-muted-foreground">
-                No blog posts yet. Check back soon!
-              </p>
             </motion.div>
           ) : (
             <div className="space-y-8">
