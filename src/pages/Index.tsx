@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-import { ArrowRight, Droplets, Shield, Image, Pickaxe, HandCoins, TriangleAlert, Waves } from "lucide-react";
+import { ArrowRight, Droplets, Shield, Image, Pickaxe, HandCoins, TriangleAlert, Waves, CopyX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import productViews from "@/assets/Screenshot 2025-12-28 164951_o1.jpg";
 import SectionProgressDivider from "@/components/SectionProgressDivider";
@@ -12,12 +12,12 @@ const values = [
   {
     icon: Pickaxe,
     title: "Skilled Workers Required",
-    description: "Drains can only be cleaned by skilled workers."
+    description: "Street drains can only be cleaned by skilled workers."
   },
   {
     icon: HandCoins,
     title: "Not Affordable",
-    description: " Drains are rarely cleaned as it is expensive."
+    description: " Street drains are rarely cleaned as it is expensive."
   },
   {
     icon: TriangleAlert,
@@ -28,9 +28,13 @@ const values = [
     icon: Waves,
     title: "Waterlogging",
     description: "Clogs lead to waterlogged streets and neighbourhoods after heavy rains."
-  }
+  },
+  {
+    icon: CopyX,
+    title: "Varying Drain Designs",
+    description: "Lack of uniformity in street drain sizes poses a significant challenge in making a single product to cater to all drain types."
+  },
 ];
-
 
 const features = [
   {
