@@ -149,8 +149,8 @@ const Contact = () => {
 
       {/* Contact Cards */}
       <section className="py-8 px-4 md:px-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {contactInfo.map((info, index) => (
               <motion.a
                 key={info.label}
@@ -160,11 +160,11 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="card-glass p-6 rounded-lg text-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_50px_rgba(59,130,246,0.3),0_8px_20px_rgba(0,0,0,0.4)] hover:border-blue-400/50"
+                className="card-glass px-4 py-6 rounded-lg text-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_50px_rgba(59,130,246,0.3),0_8px_20px_rgba(0,0,0,0.4)] hover:border-blue-400/50"
               >
                 <info.icon className="w-8 h-8 mx-auto mb-3 text-primary" />
                 <h3 className="font-semibold mb-1">{info.label}</h3>
-                <p className="text-sm text-muted-foreground break-all">{info.value}</p>
+                <p className="text-xs text-muted-foreground whitespace-nowrap">{info.value}</p>
               </motion.a>
             ))}
           </div>

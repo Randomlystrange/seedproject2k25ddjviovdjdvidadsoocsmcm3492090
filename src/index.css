@@ -195,12 +195,12 @@ img {
   left: 0;
   width: 8px;
   height: 8px;
-  background: #ffffff !important;
-  background-color: #ffffff !important;
+  background: #facc15 !important;
+  background-color: #facc15 !important;
   border-radius: 50%;
   pointer-events: none;
   z-index: 100000;
-  box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px 3px rgba(250, 204, 21, 0.5);
   transition: transform 0.15s ease, background-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
   will-change: transform;
 }
