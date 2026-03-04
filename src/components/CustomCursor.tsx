@@ -1,26 +1,28 @@
 import { useEffect, useRef } from "react";
 
-const TRAIL_LENGTH = 16;
-const LERP = 0.18;
+const TRAIL_LENGTH = 18;
+const LERP = 0.16;
 
-// Colors along the trail: vivid yellow → orange → red → magenta → blue
+// White head → bright blue → deeper blue → near transparent navy
 const TRAIL_COLORS = [
-  "#facc15", // yellow (tip)
-  "#fbbf24",
-  "#f97316",
-  "#ef4444",
-  "#e11d48",
-  "#c026d3",
-  "#a855f7",
-  "#8b5cf6",
-  "#6366f1",
-  "#3b82f6",
+  "#ffffff", // white head
+  "#e0f2fe",
+  "#bae6fd",
+  "#7dd3fc",
+  "#38bdf8",
   "#0ea5e9",
-  "#06b6d4",
-  "#14b8a6",
-  "#22c55e",
-  "#4ade80",
-  "#86efac", // pale green (tail end)
+  "#0284c7",
+  "#0369a1",
+  "#1d4ed8",
+  "#1e40af",
+  "#1e3a8a",
+  "#172554",
+  "#0f172a",
+  "#0a1128",
+  "#060d1a",
+  "#03070f",
+  "#01030a",
+  "#000510",
 ];
 
 const CustomCursor = () => {
@@ -65,8 +67,8 @@ const CustomCursor = () => {
       for (let i = 0; i < TRAIL_LENGTH; i++) {
         const dot = dotsRef.current[i];
         if (!dot) continue;
-        const size = Math.max(3, 13 - i * 0.65);
-        dot.style.opacity = visible.current ? String(1 - i * 0.045) : "0";
+        const size = Math.max(2, 18 - i * 0.9);
+        dot.style.opacity = visible.current ? String(Math.max(0, 1 - i * 0.058)) : "0";
         dot.style.width = `${size}px`;
         dot.style.height = `${size}px`;
         dot.style.transform = `translate(${trail.current[i].x - size / 2}px, ${trail.current[i].y - size / 2}px)`;
@@ -95,7 +97,11 @@ const CustomCursor = () => {
           className="cursor-trail-dot"
           style={{
             backgroundColor: TRAIL_COLORS[i],
-            boxShadow: `0 0 ${i === 0 ? 8 : 4}px 2px ${TRAIL_COLORS[i]}88`,
+            boxShadow: i === 0
+              ? `0 0 10px 3px rgba(255,255,255,0.6)`
+              : i < 5
+              ? `0 0 6px 2px rgba(14,165,233,0.5)`
+              : `none`,
             zIndex: 100000 - i,
           }}
         />
