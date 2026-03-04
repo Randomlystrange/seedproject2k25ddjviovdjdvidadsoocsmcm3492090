@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Droplets, Shield, CheckCircle, Instagram, Twitter, Wrench, Recycle, ChevronsLeftRight, Landmark } from "lucide-react";
+import { Droplets, Shield, CheckCircle, Instagram, Twitter, Wrench, Recycle, ChevronsLeftRight, Landmark, Link2Off } from "lucide-react";
 import productViews from "@/assets/Screenshot 2025-12-28 164951_o1.jpg";
 import SectionProgressDivider from "@/components/SectionProgressDivider";
 
@@ -19,16 +19,16 @@ const productFeatures = [
     features: ["3D-Printed", "Made of low-cost materials", "Low-cost solution"]
   },
   {
+    icon: Link2Off,
+    title: "Independant of Grate",
+    description: "Grate can be removed without disturbing ClearFlow.",
+    features: ["Hassle-free mesh extraction", "Easy cleaning", "Less effort required"]
+  },
+  {
     icon: Droplets,
     title: "Smart Water Flow",
     description: "Water passes through freely while the mesh catches all debris, dust, and particles.",
     features: ["Unobstructed water drainage", "No water pooling", "Works in heavy rain"]
-  },
-  {
-    icon: Shield,
-    title: "Debris Collection Mesh",
-    description: "A durable mesh system traps leaves, dirt, and debris before they can clog your drains.",
-    features: ["Catches all sizes of debris", "Durable construction", "Long-lasting material"]
   },
   {
     icon: Wrench,
@@ -65,10 +65,10 @@ const Services = () => {
             className="text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              The <span className="text-primary">ClearFlow</span>
+              HDS <span className="text-primary">ClearFlow</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              A simple, effective device that keeps your drains clog-free with a built-in debris collection mesh.
+              A simple, effective device that keeps street drains of all sizes clog-free using a debris collection mesh.
             </p>
           </motion.div>
         </div>
