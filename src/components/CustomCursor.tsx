@@ -79,8 +79,8 @@ const CustomCursor = () => {
         style={{
           opacity: isVisible ? 1 : 0,
           transform: `translate(${position.x - 4}px, ${position.y - 4}px) scale(${isClicking ? 0.5 : isPointer ? 1.5 : 1})`,
-          backgroundColor: isPointer ? 'hsl(var(--primary))' : 'hsl(var(--primary))',
-          boxShadow: isPointer ? '0 0 12px 4px hsl(var(--primary) / 0.8)' : '0 0 8px 2px hsl(var(--primary) / 0.6)',
+          backgroundColor: '#ffffff',
+          boxShadow: isPointer ? '0 0 14px 5px rgba(255, 255, 255, 0.7)' : '0 0 10px 3px rgba(255, 255, 255, 0.5)',
         }}
       />
     </>

@@ -61,7 +61,7 @@ const Team = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
               whileHover={{ y: -8 }}
-              className="card-glass p-6 rounded-lg text-center transition-all duration-300 hover:shadow-[0_10px_40px_rgba(0,120,255,0.25),0_4px_15px_rgba(0,0,0,0.4)] hover:border-primary/40"
+              className="card-glass p-6 rounded-lg text-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_50px_rgba(59,130,246,0.3),0_8px_20px_rgba(0,0,0,0.4)] hover:border-blue-400/50"
             >
               <div className="w-full aspect-[3/4] mb-4 overflow-hidden rounded-lg shadow-md">
                 <img
