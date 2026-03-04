@@ -35,8 +35,10 @@ const CustomCursor = () => {
   const visible = useRef(false);
   const animFrame = useRef<number>();
   const lastMoveTime = useRef<number>(0);
-  const IDLE_DELAY = 1200;   // ms before fade starts
-  const FADE_DURATION = 600; // ms to fully fade out
+  const TAIL_FADE_DELAY = 350;    // ms still before tail starts fading
+  const TAIL_FADE_DURATION = 400; // ms for tail to fully disappear
+  const HEAD_FADE_DELAY = 1100;   // ms still before head starts fading
+  const HEAD_FADE_DURATION = 500; // ms for head to fully disappear
 
   useEffect(() => {
     const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
@@ -88,7 +90,14 @@ const CustomCursor = () => {
           const pos = sampled[i] ?? sampled[sampled.length - 1] ?? h[h.length - 1];
           const size = Math.max(2, 18 - i * 0.85);
           const idle = performance.now() - lastMoveTime.current;
-          const idleFade = idle < IDLE_DELAY ? 1 : Math.max(0, 1 - (idle - IDLE_DELAY) / FADE_DURATION);
+          let idleFade: number;
+          if (i === 0) {
+            // Head: stays fully visible longer, then fades
+            idleFade = idle < HEAD_FADE_DELAY ? 1 : Math.max(0, 1 - (idle - HEAD_FADE_DELAY) / HEAD_FADE_DURATION);
+          } else {
+            // Tail: fades out quickly after short delay
+            idleFade = idle < TAIL_FADE_DELAY ? 1 : Math.max(0, 1 - (idle - TAIL_FADE_DELAY) / TAIL_FADE_DURATION);
+          }
           dot.style.opacity = visible.current ? String(Math.max(0, 1 - i * 0.052) * idleFade) : "0";
           dot.style.width = `${size}px`;
           dot.style.height = `${size}px`;
