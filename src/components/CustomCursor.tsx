@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react";
 
-const TRAIL_LENGTH = 18;
-const LERP = 0.16;
+const TRAIL_LENGTH = 20;
+const SPACING = 6; // px between each dot along the path
+const HISTORY = 600; // max stored mouse positions
 
-// White head → bright blue → deeper blue → near transparent navy
+// White head → bright blue → deeper blue → near-black
 const TRAIL_COLORS = [
-  "#ffffff", // white head
+  "#ffffff",
   "#e0f2fe",
   "#bae6fd",
   "#7dd3fc",
@@ -23,14 +24,14 @@ const TRAIL_COLORS = [
   "#03070f",
   "#01030a",
   "#000510",
+  "#00020a",
+  "#000105",
 ];
 
 const CustomCursor = () => {
   const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const mouse = useRef({ x: -200, y: -200 });
-  const trail = useRef(
-    Array.from({ length: TRAIL_LENGTH }, () => ({ x: -200, y: -200 }))
-  );
+  // Ring buffer of actual mouse positions
+  const history = useRef<{ x: number; y: number }[]>([]);
   const visible = useRef(false);
   const animFrame = useRef<number>();
 
@@ -39,11 +40,14 @@ const CustomCursor = () => {
     if (isTouchDevice) return;
 
     const onMouseMove = (e: MouseEvent) => {
-      mouse.current = { x: e.clientX, y: e.clientY };
+      const pos = { x: e.clientX, y: e.clientY };
       if (!visible.current) {
-        // Snap all trail dots to cursor on first move to avoid initial sweep
-        trail.current = trail.current.map(() => ({ ...mouse.current }));
+        // Pre-fill history so trail starts at cursor, not origin
+        history.current = Array(HISTORY).fill(pos).map(() => ({ ...pos }));
         visible.current = true;
+      } else {
+        history.current.unshift(pos);
+        if (history.current.length > HISTORY) history.current.length = HISTORY;
       }
     };
     const onMouseLeave = () => { visible.current = false; };
@@ -54,24 +58,36 @@ const CustomCursor = () => {
     document.documentElement.addEventListener("mouseenter", onMouseEnter);
 
     const animate = () => {
-      // Each segment lerps toward the one before it
-      trail.current[0].x += (mouse.current.x - trail.current[0].x) * LERP;
-      trail.current[0].y += (mouse.current.y - trail.current[0].y) * LERP;
+      const h = history.current;
+      if (h.length > 0) {
+        // Walk along the history buffer sampling every SPACING px
+        let sampled: { x: number; y: number }[] = [];
+        let accumulated = 0;
+        let prev = h[0];
+        sampled.push(prev);
 
-      for (let i = 1; i < TRAIL_LENGTH; i++) {
-        trail.current[i].x += (trail.current[i - 1].x - trail.current[i].x) * LERP;
-        trail.current[i].y += (trail.current[i - 1].y - trail.current[i].y) * LERP;
-      }
+        for (let j = 1; j < h.length && sampled.length < TRAIL_LENGTH; j++) {
+          const dx = h[j].x - prev.x;
+          const dy = h[j].y - prev.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          accumulated += dist;
+          if (accumulated >= SPACING) {
+            sampled.push(h[j]);
+            accumulated = 0;
+            prev = h[j];
+          }
+        }
 
-      // Update DOM directly for max perf
-      for (let i = 0; i < TRAIL_LENGTH; i++) {
-        const dot = dotsRef.current[i];
-        if (!dot) continue;
-        const size = Math.max(2, 18 - i * 0.9);
-        dot.style.opacity = visible.current ? String(Math.max(0, 1 - i * 0.058)) : "0";
-        dot.style.width = `${size}px`;
-        dot.style.height = `${size}px`;
-        dot.style.transform = `translate(${trail.current[i].x - size / 2}px, ${trail.current[i].y - size / 2}px)`;
+        for (let i = 0; i < TRAIL_LENGTH; i++) {
+          const dot = dotsRef.current[i];
+          if (!dot) continue;
+          const pos = sampled[i] ?? sampled[sampled.length - 1] ?? h[h.length - 1];
+          const size = Math.max(2, 18 - i * 0.85);
+          dot.style.opacity = visible.current ? String(Math.max(0, 1 - i * 0.052)) : "0";
+          dot.style.width = `${size}px`;
+          dot.style.height = `${size}px`;
+          dot.style.transform = `translate(${pos.x - size / 2}px, ${pos.y - size / 2}px)`;
+        }
       }
 
       animFrame.current = requestAnimationFrame(animate);
@@ -111,4 +127,5 @@ const CustomCursor = () => {
 };
 
 export default CustomCursor;
+
 
