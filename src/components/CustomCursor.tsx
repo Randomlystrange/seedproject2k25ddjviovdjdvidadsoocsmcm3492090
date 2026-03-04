@@ -69,7 +69,7 @@ const CustomCursor = () => {
           opacity: isVisible ? 1 : 0,
           width: isPointer ? '50px' : '40px',
           height: isPointer ? '50px' : '40px',
-          borderColor: isPointer ? 'hsl(var(--primary))' : 'hsl(var(--primary) / 0.5)',
+          borderColor: isPointer ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.7)',
           transform: `translate(${position.x - 20}px, ${position.y - 20}px)`,
         }}
       />
@@ -79,7 +79,8 @@ const CustomCursor = () => {
         style={{
           opacity: isVisible ? 1 : 0,
           transform: `translate(${position.x - 4}px, ${position.y - 4}px) scale(${isClicking ? 0.5 : isPointer ? 1.5 : 1})`,
-          backgroundColor: isPointer ? 'hsl(var(--primary))' : 'hsl(var(--primary) / 0.8)',
+          backgroundColor: isPointer ? 'hsl(var(--primary))' : 'hsl(var(--primary))',
+          boxShadow: isPointer ? '0 0 12px 4px hsl(var(--primary) / 0.8)' : '0 0 8px 2px hsl(var(--primary) / 0.6)',
         }}
       />
     </>

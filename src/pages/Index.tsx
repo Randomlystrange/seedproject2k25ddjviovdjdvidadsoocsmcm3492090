@@ -120,7 +120,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="card-glass p-6 rounded-lg w-full md:w-[calc(33.333%-1rem)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-primary/20 hover:border-primary/30"
+                className="card-glass p-6 rounded-lg w-full md:w-[calc(33.333%-1rem)] transition-all duration-300 hover:shadow-[0_10px_40px_rgba(0,120,255,0.25),0_4px_15px_rgba(0,0,0,0.4)] hover:border-primary/40"
               >
                 <value.icon className="w-12 h-12 mx-auto mb-4 text-primary" />
                 <h3 className="text-xl font-bold mb-2">{value.title}</h3>
