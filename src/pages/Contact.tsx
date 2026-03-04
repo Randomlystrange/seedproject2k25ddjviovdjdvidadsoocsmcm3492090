@@ -159,11 +159,12 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="card-glass p-6 rounded-lg text-center hover:shadow-lg transition-shadow"
+                whileHover={{ y: -8 }}
+                className="card-glass p-6 rounded-lg text-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_50px_rgba(59,130,246,0.3),0_8px_20px_rgba(0,0,0,0.4)] hover:border-blue-400/50"
               >
                 <info.icon className="w-8 h-8 mx-auto mb-3 text-primary" />
                 <h3 className="font-semibold mb-1">{info.label}</h3>
-                <p className="text-sm text-muted-foreground">{info.value}</p>
+                <p className="text-sm text-muted-foreground break-all">{info.value}</p>
               </motion.a>
             ))}
           </div>
