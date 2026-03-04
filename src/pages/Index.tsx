@@ -111,7 +111,7 @@ const Index = () => {
           >
             <span className="text-primary">Problems</span> faced in Drainage
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -119,7 +119,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="card-glass p-6 rounded-lg text-center"
+                className="card-glass p-6 rounded-lg hover:shadow-lg transition-shadow"
               >
                 <value.icon className="w-12 h-12 mx-auto mb-4 text-primary" />
                 <h3 className="text-xl font-bold mb-2">{value.title}</h3>
