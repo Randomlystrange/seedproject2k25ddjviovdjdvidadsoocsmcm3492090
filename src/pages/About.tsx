@@ -87,8 +87,10 @@ const About = () => {
               <h3 className="text-2xl font-bold mb-4 text-primary">Our Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
                 To create a future where every street, every neighborhood, and every city 
-                in India has access to efficient, sustainable drainage solutions that prevent 
-                flooding and improve urban living conditions.
+                in India has access to HDS ClearFlow to prevent waterlogging and improve 
+                urban living conditions. We hope for a future where cleaners do not have to 
+                enter the extremely unhygienic and toxic environment inside drains. We hope to 
+                empower the people to take the matter of efficient drainage into their own hands.
               </p>
             </motion.div>
           </div>
