@@ -3,10 +3,34 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-import { ArrowRight, Droplets, Shield, Image } from "lucide-react";
+import { ArrowRight, Droplets, Shield, Image, Pickaxe, HandCoins, TriangleAlert, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import productViews from "@/assets/Screenshot 2025-12-28 164951_o1.jpg";
 import SectionProgressDivider from "@/components/SectionProgressDivider";
+
+const values = [
+  {
+    icon: Pickaxe,
+    title: "Skilled Workers Required",
+    description: "Drains can only be cleaned by skilled workers."
+  },
+  {
+    icon: HandCoins,
+    title: "Not Affordable",
+    description: " Drains are rarely cleaned as it is expensive."
+  },
+  {
+    icon: TriangleAlert,
+    title: "Clogging",
+    description: "Due to infrequent cleaning, clogs develop."
+  },
+  {
+    icon: Waves,
+    title: "Waterlogging",
+    description: "Clogs lead to waterlogged streets and neighbourhoods after heavy rains."
+  }
+];
+
 
 const features = [
   {
@@ -66,6 +90,38 @@ const Index = () => {
                 Learn More About Us <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <SectionProgressDivider />
+
+      {/* Values Section */}
+      <section className="py-16 px-4 md:px-8 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-12"
+          >
+            Our <span className="text-primary">Values</span>
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="card-glass p-6 rounded-lg text-center"
+              >
+                <value.icon className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-xl font-bold mb-2">{value.title}</h3>
+                <p className="text-muted-foreground text-sm">{value.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
