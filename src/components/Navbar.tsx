@@ -61,10 +61,10 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`transition-colors font-medium ${
+                className={`transition-all duration-200 font-medium ${
                   isActive(item.href)
-                    ? "text-primary"
-                    : "text-foreground/80 hover:text-foreground"
+                    ? "text-primary [text-shadow:0_0_10px_rgba(59,130,246,0.8)]"
+                    : "text-foreground/80 hover:text-primary hover:[text-shadow:0_0_10px_rgba(59,130,246,0.7)]"
                 }`}
               >
                 {item.label}
@@ -77,7 +77,7 @@ const Navbar = () => {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur hover:bg-primary/20 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 transition-all flex items-center justify-center text-foreground/70"
+                  className="w-10 h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_12px_rgba(59,130,246,0.6)] hover:border-blue-400/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 transition-all flex items-center justify-center text-foreground/70"
                   aria-label={link.label}
                 >
                   <link.icon className="w-4 h-4" />
