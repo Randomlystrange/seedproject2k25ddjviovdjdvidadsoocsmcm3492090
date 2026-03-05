@@ -138,15 +138,15 @@ const TriangleCursor = () => {
       >
         {/* translate offset = –(size / 2) to centre the SVG on the cursor point */}
         <svg
-          width="38"
-          height="38"
-          viewBox="0 0 38 38"
-          style={{ display: "block", transform: "translate(-19px, -19px)" }}
+          width="48"
+          height="48"
+          viewBox="0 0 48 48"
+          style={{ display: "block", transform: "translate(-24px, -24px)" }}
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Outer triangle – inverted (pointing down) for a layered look */}
+          {/* Outer triangle – inverted (pointing down), centroid at (24,24) */}
           <polygon
-            points="19,36 35,7 3,7"
+            points="24,46 5,13 43,13"
             fill="none"
             stroke="rgba(59,130,246,0.75)"
             strokeWidth="1.5"
@@ -154,7 +154,7 @@ const TriangleCursor = () => {
           />
           {/* Soft glow duplicate */}
           <polygon
-            points="19,36 35,7 3,7"
+            points="24,46 5,13 43,13"
             fill="none"
             stroke="rgba(147,197,253,0.25)"
             strokeWidth="4"
