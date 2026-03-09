@@ -242,6 +242,195 @@ const Services = () => {
         </div>
       </section>
 
+      <SectionProgressDivider />
+
+      {/* Manufacturing Cost Breakdown */}
+      <section className="py-16 px-4 md:px-8 bg-muted/30">
+        <div className="max-w-5xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-4"
+          >
+            Manufacturing <span className="text-primary">Cost Breakdown</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-center text-muted-foreground mb-12"
+          >
+            Optimised industrial manufacturing methods — per unit cost at a 5,000-unit batch
+          </motion.p>
+
+          {/* Component cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {/* Hook Clamps */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="card-glass p-6 rounded-lg"
+            >
+              <h3 className="text-lg font-bold mb-1">Hook Clamps</h3>
+              <p className="text-sm text-muted-foreground mb-4">2 per unit · Investment Casting (SS316)</p>
+              <table className="w-full text-sm mb-4">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-1 font-semibold text-muted-foreground">Component</th>
+                    <th className="text-right py-1 font-semibold text-muted-foreground">Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/50">
+                    <td className="py-1">SS316 material</td>
+                    <td className="text-right py-1">₹30</td>
+                  </tr>
+                  <tr className="border-b border-border/50">
+                    <td className="py-1">Casting process</td>
+                    <td className="text-right py-1">₹40</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">Basic finishing</td>
+                    <td className="text-right py-1">₹10</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="flex justify-between items-center text-sm font-semibold border-t border-border pt-3">
+                <span>Cost per hook</span>
+                <span className="text-primary">₹80</span>
+              </div>
+              <div className="flex justify-between items-center mt-2 font-bold text-base">
+                <span>2 hooks per unit</span>
+                <span className="text-primary">₹160</span>
+              </div>
+            </motion.div>
+
+            {/* Threaded Rods */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="card-glass p-6 rounded-lg"
+            >
+              <h3 className="text-lg font-bold mb-1">Threaded Rods</h3>
+              <p className="text-sm text-muted-foreground mb-4">2 per unit · Thread rolling from SS316 rod</p>
+              <table className="w-full text-sm mb-4">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-1 font-semibold text-muted-foreground">Component</th>
+                    <th className="text-right py-1 font-semibold text-muted-foreground">Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/50">
+                    <td className="py-1">SS316 rod material</td>
+                    <td className="text-right py-1">₹35</td>
+                  </tr>
+                  <tr className="border-b border-border/50">
+                    <td className="py-1">Thread rolling</td>
+                    <td className="text-right py-1">₹10</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">Cutting</td>
+                    <td className="text-right py-1">₹5</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="flex justify-between items-center text-sm font-semibold border-t border-border pt-3">
+                <span>Cost per rod</span>
+                <span className="text-primary">₹50</span>
+              </div>
+              <div className="flex justify-between items-center mt-2 font-bold text-base">
+                <span>2 rods per unit</span>
+                <span className="text-primary">₹100</span>
+              </div>
+            </motion.div>
+
+            {/* Central Housing Tube */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="card-glass p-6 rounded-lg"
+            >
+              <h3 className="text-lg font-bold mb-1">Central Housing Tube</h3>
+              <p className="text-sm text-muted-foreground mb-4">1 per unit · SS316 seamless tube + tapping</p>
+              <table className="w-full text-sm mb-4">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-1 font-semibold text-muted-foreground">Component</th>
+                    <th className="text-right py-1 font-semibold text-muted-foreground">Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/50">
+                    <td className="py-1">SS316 tube material</td>
+                    <td className="text-right py-1">₹70</td>
+                  </tr>
+                  <tr className="border-b border-border/50">
+                    <td className="py-1">Cutting</td>
+                    <td className="text-right py-1">₹5</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">Thread tapping</td>
+                    <td className="text-right py-1">₹25</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="flex justify-between items-center mt-2 font-bold text-base border-t border-border pt-3">
+                <span>Cost per housing</span>
+                <span className="text-primary">₹100</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Total summary */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="card-glass p-6 rounded-lg max-w-xl mx-auto"
+          >
+            <h3 className="text-xl font-bold text-center mb-4">
+              Total Manufacturing Cost <span className="text-primary">(Per Unit)</span>
+            </h3>
+            <table className="w-full text-sm mb-4">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="text-left py-1 font-semibold text-muted-foreground">Part</th>
+                  <th className="text-right py-1 font-semibold text-muted-foreground">Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-border/50">
+                  <td className="py-2">2 Hook Clamps</td>
+                  <td className="text-right py-2">₹160</td>
+                </tr>
+                <tr className="border-b border-border/50">
+                  <td className="py-2">2 Threaded Rods</td>
+                  <td className="text-right py-2">₹100</td>
+                </tr>
+                <tr>
+                  <td className="py-2">Central Housing</td>
+                  <td className="text-right py-2">₹100</td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="flex justify-between items-center border-t border-border pt-4 text-lg font-bold">
+              <span>Total per unit</span>
+              <span className="text-primary text-2xl">₹360</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section with Social Media */}
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
