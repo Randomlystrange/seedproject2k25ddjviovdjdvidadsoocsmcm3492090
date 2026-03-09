@@ -46,6 +46,111 @@ const productFeatures = [
   }
 ];
 
+const competitorProducts = [
+  {
+    name: "HDS ClearFlow",
+    price: "₹499",
+    description: "Adjustable mesh-based drain insert that prevents clogs in street drains of all sizes. One-time purchase, no professional help needed.",
+    pros: [
+      "Adjustable to fit any drain size",
+      "Prevents clogs before they form",
+      "Easy DIY cleaning in 2 minutes",
+      "Reusable — no recurring cost",
+      "Eco-friendly materials",
+    ],
+    cons: [
+      "Currently in prototype stage",
+      "Primarily designed for outdoor street drains",
+    ],
+    highlight: true,
+  },
+  {
+    name: "Generic Mesh Drain Strainer",
+    price: "₹150 – ₹350",
+    description: "Fixed-size plastic or stainless-steel mesh inserts widely available on Amazon and in hardware shops.",
+    pros: [
+      "Very low upfront cost",
+      "Widely available",
+      "Simple to use",
+    ],
+    cons: [
+      "Fixed size — won't fit non-standard drains",
+      "Easily dislodged by water flow",
+      "Limited to small household drains",
+      "Needs frequent replacement",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Branded Drain Grates / Covers",
+    price: "₹250 – ₹700",
+    description: "Branded cast-iron or PVC drain covers (e.g., Nirali, Hindware) designed to sit on top of floor or street drains.",
+    pros: [
+      "Durable and long-lasting",
+      "Fits standard drain sizes well",
+      "No maintenance required",
+    ],
+    cons: [
+      "Fixed standard sizes only",
+      "Doesn't catch fine debris",
+      "Does not prevent internal clogging",
+      "Replacement needed if size doesn't match",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Chemical Drain Cleaners",
+    price: "₹200 – ₹450 per bottle",
+    description: "Liquid or gel chemical cleaners (e.g., Mr. Muscle Drain Gel, Drano) that dissolve organic clogs inside pipes.",
+    pros: [
+      "Easy to apply",
+      "Clears existing clogs quickly",
+      "Available at most supermarkets",
+    ],
+    cons: [
+      "Reactive — only works after a clog forms",
+      "Recurring purchase every few months",
+      "Harmful chemicals dangerous to pipes and environment",
+      "Ineffective on non-organic debris",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Drain Snake / Auger Tool",
+    price: "₹400 – ₹1,200",
+    description: "Manual or electric rotating cable tool used to break up clogs deep inside drain pipes.",
+    pros: [
+      "Handles deep, severe clogs",
+      "Reusable tool",
+      "No chemicals required",
+    ],
+    cons: [
+      "Reactive — used only after a clog develops",
+      "Requires effort and some skill",
+      "Messy to use",
+      "Doesn't prevent future clogs",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Professional Drain Cleaning Service",
+    price: "₹500 – ₹2,000 per visit",
+    description: "Plumber or municipal service hired to clear blocked drains using tools or high-pressure water jets.",
+    pros: [
+      "Thorough, expert-level cleaning",
+      "Can clear severe blockages",
+      "No effort from homeowner",
+    ],
+    cons: [
+      "Highest cost option",
+      "Temporary fix — clog returns without prevention",
+      "Must be scheduled in advance",
+      "Not always available for street drains",
+    ],
+    highlight: false,
+  },
+];
+
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/happy.drain.solutions/", icon: Instagram },
   { label: "Twitter", href: "https://x.com/happy_drain", icon: Twitter },
@@ -244,7 +349,7 @@ const Services = () => {
 
       <SectionProgressDivider />
 
-      {/* Manufacturing Cost */}
+      {/* Selling Price */}
       <section className="py-16 px-4 md:px-8 bg-muted/30">
         <div className="max-w-3xl mx-auto text-center">
           <motion.h2
@@ -253,7 +358,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-4xl font-bold mb-4"
           >
-            Manufacturing <span className="text-primary">Cost</span>
+            Selling <span className="text-primary">Price</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -262,7 +367,7 @@ const Services = () => {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground mb-10"
           >
-            Optimised industrial manufacturing methods — per unit cost at a 5,000-unit batch
+            One-time purchase — no recurring subscription or service fees
           </motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -271,9 +376,77 @@ const Services = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="card-glass p-10 rounded-2xl inline-block mx-auto"
           >
-            <p className="text-muted-foreground text-sm uppercase tracking-widest mb-2">Total Cost Per Unit</p>
-            <p className="text-7xl font-extrabold text-primary leading-none">₹360</p>
+            <p className="text-muted-foreground text-sm uppercase tracking-widest mb-2">Price Per Unit</p>
+            <p className="text-7xl font-extrabold text-primary leading-none">₹499</p>
           </motion.div>
+        </div>
+      </section>
+
+      <SectionProgressDivider />
+
+      {/* Competitor Comparison */}
+      <section className="py-16 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-4"
+          >
+            How We <span className="text-primary">Compare</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto"
+          >
+            See how HDS ClearFlow stacks up against other common drain-cleaning solutions available in the Indian market.
+          </motion.p>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {competitorProducts.map((product, index) => (
+              <motion.div
+                key={product.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`card-glass p-6 rounded-lg flex flex-col gap-4${product.highlight ? " border-primary/60 shadow-[0_0_24px_rgba(59,130,246,0.35)]" : ""}`}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className={`text-xl font-bold${product.highlight ? " text-primary" : ""}`}>{product.name}</h3>
+                  {product.highlight && (
+                    <span className="text-xs font-semibold bg-primary text-primary-foreground px-2 py-0.5 rounded-full">Our Product</span>
+                  )}
+                </div>
+                <p className="text-2xl font-extrabold text-primary">{product.price}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
+                <div>
+                  <p className="text-sm font-semibold mb-1 text-green-400">✔ Pros</p>
+                  <ul className="space-y-1">
+                    {product.pros.map((pro, i) => (
+                      <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                        {pro}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold mb-1 text-red-400">✘ Cons</p>
+                  <ul className="space-y-1">
+                    {product.cons.map((con, i) => (
+                      <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                        <Shield className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                        {con}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
