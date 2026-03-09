@@ -151,6 +151,10 @@ const Index = () => {
                 that would normally clog street drains. Water flows through freely, while everything else 
                 gets collected in the mesh which you can easily empty yourself.
               </p>
+              <div className="card-glass inline-flex flex-col items-center px-8 py-4 rounded-xl mb-6">
+                <span className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Manufacturing Cost Per Unit</span>
+                <span className="text-5xl font-extrabold text-primary leading-none">₹360</span>
+              </div>
               <Link to="/services">
                 <Button size="lg" className="gap-2">
                   Learn More <ArrowRight className="w-4 h-4" />
