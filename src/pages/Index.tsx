@@ -152,8 +152,8 @@ const Index = () => {
                 gets collected in the mesh which you can easily empty yourself.
               </p>
               <div className="card-glass inline-flex flex-col items-center px-8 py-4 rounded-xl mb-6">
-                <span className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Manufacturing Cost Per Unit</span>
-                <span className="text-5xl font-extrabold text-primary leading-none">₹360</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Price Per Unit</span>
+                <span className="text-5xl font-extrabold text-primary leading-none">₹499</span>
               </div>
               <Link to="/services">
                 <Button size="lg" className="gap-2">
