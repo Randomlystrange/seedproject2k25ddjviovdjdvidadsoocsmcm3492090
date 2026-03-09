@@ -58,10 +58,7 @@ const competitorProducts = [
       "Reusable — no recurring cost",
       "Eco-friendly materials",
     ],
-    cons: [
-      "Currently in prototype stage",
-      "Primarily designed for outdoor street drains",
-    ],
+    cons: [],
     highlight: true,
   },
   {
@@ -433,17 +430,19 @@ const Services = () => {
                     ))}
                   </ul>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold mb-1 text-red-400">✘ Cons</p>
-                  <ul className="space-y-1">
-                    {product.cons.map((con, i) => (
-                      <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                        <Shield className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
-                        {con}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {product.cons.length > 0 && (
+                  <div>
+                    <p className="text-sm font-semibold mb-1 text-red-400">✘ Cons</p>
+                    <ul className="space-y-1">
+                      {product.cons.map((con, i) => (
+                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <Shield className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                          {con}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
